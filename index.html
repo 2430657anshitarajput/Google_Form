@@ -152,6 +152,35 @@ input[type="date"] {
 input[type="date"] {
   height: 38px;
 }
+/* Fix calendar icon overlap for DOB */
+.form-group.date-group {
+  position: relative;
+}
+
+.form-group.date-group .material-icons {
+  position: absolute;
+  left: 10px;           /* space from left */
+  top: 50%;             /* vertical center */
+  transform: translateY(-50%);
+  color: #757575;
+  font-size: 20px;
+}
+
+input[type="date"] {
+  padding: 10px 10px 10px 40px; /* left padding for icon */
+  height: 38px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+}
+
+input[type="date"]:focus {
+  border-bottom: 2px solid #673ab7;
+  outline: none;
+}
+
 
 </style>
 </head>
@@ -202,12 +231,12 @@ input[type="date"] {
       <label>Gender *</label>
     </div>
 
-    <!-- ✅ FIXED DATE -->
-    <div class="form-group">
+   <div class="form-group date-group">
   <span class="material-icons">calendar_today</span>
   <input type="date" name="dob" required>
   <label>Date of Birth *</label>
 </div>
+
 
 
     <div class="form-group">
