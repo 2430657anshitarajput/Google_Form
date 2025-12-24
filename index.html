@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration Form</title>
+
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+body{
+  background:#f0ebf8;
+  font-family:Roboto, Arial, sans-serif;
+}
+
+/* Container */
+.form-container{
+  width:520px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+  overflow:hidden;
+  animation:fadeIn .6s ease;
+}
+
+/* Header */
+.form-header{
+  background:#673ab7;
+  color:#fff;
+  padding:20px;
+}
+
+.form-header h1{
+  margin:0;
+  font-size:22px;
+}
+
+.form-header p{
+  margin-top:6px;
+  font-size:14px;
+}
+
+/* Form */
+form{
+  padding:20px;
+}
+
+.form-group{
+  position:relative;
+  margin-bottom:26px;
+}
+
+/* Icons */
+.form-group .material-icons{
+  position:absolute;
+  left:0;
+  top:10px;
+  color:#757575;
+  font-size:20px;
+}
+
+/* Inputs */
+input, textarea, select{
+  width:100%;
+  border:none;
+  border-bottom:2px solid #ccc;
+  padding:10px 40px 10px 30px; /* FIXED */
+  font-size:14px;
+  background:transparent;
+}
+
+/* ✅ DATE INPUT FIX */
+input[type="date"]{
+  padding-right:40px;   /* space for calendar */
+}
+
+
+/* Floating label */
+label{
+  position:absolute;
+  left:30px;
+  top:12px;
+  font-size:14px;
+  color:#757575;
+  pointer-events:none;
+  transition:.3s ease;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label,
+select:focus + label,
+select:not([value=""]) + label{
+  top:-8px;
+  font-size:11px;
+  color:#673ab7;
+}
+
+/* Underline animation */
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none;
+  border-bottom:2px solid #673ab7;
+}
+
+/* Button */
+button{
+  background:#673ab7;
+  color:#fff;
+  border:none;
+  padding:10px 32px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:14px;
+}
+button:hover{
+  background:#5e35b1;
+  box-shadow:0 3px 6px rgba(0,0,0,.25);
+}
+
+/* Thank You */
+.thank-you{
+  display:none;
+  padding:40px 20px;
+  text-align:center;
+}
+.thank-you h2{
+  color:#673ab7;
+}
+
+/* Animations */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Mobile */
+@media (max-width:600px){
+  .form-container{
+    width:90%;
+  }
+}
+/* Specific style for date input */
+input[type="date"] {
+  padding-left: 3px; /* slightly less than other inputs to fit calendar icon */
+}
+
+/* Optional: increase height to fit the calendar icon */
+input[type="date"] {
+  height: 38px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+  <div class="form-header" id="header">
+    <h1>Student Registration Form</h1>
+    <p>Fill all required details carefully</p>
+  </div>
+
+  <form id="studentForm">
+
+    <div class="form-group">
+      <span class="material-icons">person</span>
+      <input type="text" name="name" required placeholder=" ">
+      <label>Student Name *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">badge</span>
+      <input type="text" name="roll" required placeholder=" ">
+      <label>Roll Number *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">email</span>
+      <input type="email" name="email" required placeholder=" ">
+      <label>Email Address *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">call</span>
+      <input type="tel" name="mobile" required placeholder=" ">
+      <label>Mobile Number *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">wc</span>
+      <select name="gender" required>
+        <option value="" disabled selected></option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <label>Gender *</label>
+    </div>
+
+    <!-- ✅ FIXED DATE -->
+    <div class="form-group">
+  <span class="material-icons">calendar_today</span>
+  <input type="date" name="dob" required>
+  <label>Date of Birth *</label>
+</div>
+
+
+    <div class="form-group">
+      <span class="material-icons">school</span>
+      <select name="course" required>
+        <option value="" disabled selected></option>
+        <option>B.Tech</option>
+        <option>BCA</option>
+        <option>B.Sc</option>
+        <option>MCA</option>
+        <option>BBA</option>
+        <option>MBA</option>
+      </select>
+      <label>Course *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">timeline</span>
+      <select name="year" required>
+        <option value="" disabled selected></option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+      </select>
+      <label>Year *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">account_balance</span>
+      <input type="text" name="college" required placeholder=" ">
+      <label>College / University *</label>
+    </div>
+
+    <div class="form-group">
+      <span class="material-icons">home</span>
+      <textarea name="address" rows="3" placeholder=" "></textarea>
+      <label>Address</label>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="thank-you" id="thankYou">
+    <span class="material-icons" style="font-size:50px;color:#673ab7;">check_circle</span>
+    <h2>Thank You!</h2>
+    <p>Your response has been recorded.</p>
+  </div>
+
+</div>
+
+<script>
+document.getElementById("studentForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch("YOUR_SCRIPT_URL",{
+    method:"POST",
+    body:formData
+  })
+  .then(()=> {
+    this.style.display="none";
+    document.getElementById("header").style.display="none";
+    document.getElementById("thankYou").style.display="block";
+  });
+});
+</script>
+
+</body>
+</html>
